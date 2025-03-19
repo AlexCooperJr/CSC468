@@ -1,0 +1,31 @@
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongo_container
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: sammy
+      MONGO_INITDB_ROOT_PASSWORD: your_password
+      MONGO_INITDB_DATABASE: sharkinfo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  app:
+    build: .
+    container_name: node_app
+    restart: always
+    depends_on:
+      - mongo
+    environment:
+      MONGO_USERNAME: sammy
+      MONGO_PASSWORD: your_password
+      MONGO_HOSTNAME: mongo
+      MONGO_PORT: 27017
+      MONGO_DB: sharkinfo
+    ports:
+      - "8080:8080"
+
+volumes:
+  mongo_data:

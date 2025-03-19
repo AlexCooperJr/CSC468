@@ -44,7 +44,7 @@ audio {
     max-width: 80%;
 }
 
-div.caption: {
-    float: left;
-    clear: both;
+.card-body {
+    background: #000000;
+    color: #ffffff;
 }

@@ -1,28 +1,22 @@
 const express = require('express');
+const path = require('path');
 const app = express();
-const router = express.Router();
-const db = require('./db');
 
-const path = __dirname + '/views/';
+const indexRouter = require('./routes/index');
+const sharksRouter = require('./routes/sharks');
+const db = require('./db'); 
+
 const port = 8080;
 
-router.use(function (req,res,next) {
-  console.log('/' + req.method);
-  next();
-});
-
-router.get('/',function(req,res){
-  res.sendFile(path + 'index.html');
-});
-
-router.get('/sharks',function(req,res){
-  res.sendFile(path + 'sharks.html');
-});
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path));
-app.use('/', router);
+app.use(express.static(path.join(__dirname, 'views')));
+
+app.use('/', indexRouter);
+app.use('/sharks', sharksRouter);
 
 app.listen(port, function () {
-  console.log('Example app listening on port 8080!')
-})
+  console.log(`Server running on http://localhost:${port}`);
+});

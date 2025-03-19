@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h2>Add a Shark</h2>
+        <form action="/sharks/addshark" method="post" class="mb-4">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Shark Name" name="name" required>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Shark Character" name="character" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+<h2>Shark List</h2>
+<div class="row">
+    <% if (sharks.length > 0) { %>
+        <% sharks.forEach(function(shark) { %>
+            <div class="col-lg-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= shark.name %></h5>
+                        <p class="card-text"><%= shark.character %></p>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    <% } else { %>
+        <p>No sharks added yet.</p>
+    <% } %>
+</div>
