@@ -1,0 +1,14 @@
+services:
+  node_project:
+    build:
+      context: ./node_project
+      dockerfile: Dockerfile
+    container_name: node_project
+    ports:
+      - "3000:3000"
+  mongo:
+    image: mongo:4.4
+    ports:
+      - "4000:4000"
+    volumes:
+      - mongo-data:/data/db
