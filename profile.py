@@ -19,7 +19,7 @@ request.addTour(tour)
 
 node = request.XenVM("docker")
 node.cores = 4
-node.ram = 4096
+node.ram = 1024
 node.routable_control_ip = "true" 
 
 bs_landing = node.Blockstore("bs_image", "/image")
