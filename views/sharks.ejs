@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>About Sharks</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link href="/css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-dark navbar-static-top navbar-expand-md">
+        <div class="container">
+            <a class="navbar-brand" href="/">Everything Sharks</a>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav mr-auto">
+                    <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                    <li class="active nav-item"><a href="/sharks" class="nav-link">Sharks</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron text-center">
+        <h1>Shark Info</h1>
+    </div>
+
+    <div class="container">
+        <%- include('getshark') %> 
+    </div>
+
+</body>
+
+</html>
